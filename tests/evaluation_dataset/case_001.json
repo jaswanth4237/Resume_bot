@@ -1,0 +1,15 @@
+{
+    "id": "case_001",
+    "name": "Java Backend Developer — Suitable Candidate",
+    "expected_decision": "SUITABLE",
+    "expected_mandatory_failures": [],
+    "expected_missing_skills": [
+        "Docker"
+    ],
+    "expected_score_range": [
+        75.0,
+        95.0
+    ],
+    "jd_text": "Java Backend Developer required. Mandatory requirements: 3+ years of experience in Java, Spring Boot, and REST API. Preferred skills: Docker, AWS, Kubernetes. Bachelor's degree in Computer Science required.",
+    "resume_text": "John Doe. Senior Java Software Engineer with 4 years of experience. Expert in Java, Spring Boot, Microservices, REST API, MySQL, and PostgreSQL. B.Tech in Computer Science."
+}

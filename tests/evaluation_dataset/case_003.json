@@ -1,0 +1,17 @@
+{
+    "id": "case_003",
+    "name": "Java Backend Developer — Qualified Candidate",
+    "expected_decision": "SUITABLE",
+    "expected_mandatory_failures": [],
+    "expected_missing_skills": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+    ],
+    "expected_score_range": [
+        75.0,
+        90.0
+    ],
+    "jd_text": "Java Developer. Requirements: 2+ years Java experience, REST APIs required. Preferred: AWS, Docker, Kubernetes.",
+    "resume_text": "Alex Taylor. Software Developer with 2 years Java experience. Worked on Web Services. Familiar with AWS EC2."
+}

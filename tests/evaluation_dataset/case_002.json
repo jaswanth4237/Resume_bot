@@ -1,0 +1,17 @@
+{
+    "id": "case_002",
+    "name": "Java Backend Developer — Reject (Missing Mandatory Skill & Experience)",
+    "expected_decision": "REJECT",
+    "expected_mandatory_failures": [
+        "Missing mandatory skill: Spring Boot"
+    ],
+    "expected_missing_skills": [
+        "Spring Boot"
+    ],
+    "expected_score_range": [
+        0.0,
+        60.0
+    ],
+    "jd_text": "Senior Java Developer. Mandatory requirements: 5+ years of experience, Java, Spring Boot, Microservices. Bachelor's degree required.",
+    "resume_text": "Jane Smith. Junior Developer with 1 year of Python and HTML experience. Self-taught web designer."
+}

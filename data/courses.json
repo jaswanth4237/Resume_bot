@@ -1,0 +1,66 @@
+[
+  {
+    "skill": "Docker",
+    "title": "Docker Fundamentals",
+    "platform": "Coursera / Educational Catalog",
+    "level": "Beginner",
+    "url": "https://www.coursera.org/learn/docker-essentials",
+    "duration": "6 hours"
+  },
+  {
+    "skill": "Docker",
+    "title": "Docker for Developers",
+    "platform": "Udemy Catalog",
+    "level": "Intermediate",
+    "url": "https://www.udemy.com/course/docker-mastery",
+    "duration": "10 hours"
+  },
+  {
+    "skill": "AWS",
+    "title": "AWS Cloud Fundamentals",
+    "platform": "AWS Training",
+    "level": "Beginner",
+    "url": "https://aws.amazon.com/training/course-ramps/aws-cloud-practitioner/",
+    "duration": "8 hours"
+  },
+  {
+    "skill": "AWS",
+    "title": "AWS Developer Learning Path",
+    "platform": "AWS Training",
+    "level": "Intermediate",
+    "url": "https://aws.amazon.com/training/learning-paths/developer/",
+    "duration": "20 hours"
+  },
+  {
+    "skill": "Kubernetes",
+    "title": "Kubernetes for Beginners",
+    "platform": "edX Catalog",
+    "level": "Beginner",
+    "url": "https://www.edx.org/learn/kubernetes",
+    "duration": "12 hours"
+  },
+  {
+    "skill": "Microservices",
+    "title": "Microservices Architecture & Design",
+    "platform": "Pluralsight Catalog",
+    "level": "Intermediate",
+    "url": "https://www.pluralsight.com/courses/microservices-architectural-design-patterns",
+    "duration": "5 hours"
+  },
+  {
+    "skill": "Spring Boot",
+    "title": "Building Microservices with Spring Boot",
+    "platform": "Spring Academy",
+    "level": "Intermediate",
+    "url": "https://spring.academy/courses/building-microservices-with-spring-boot",
+    "duration": "15 hours"
+  },
+  {
+    "skill": "PostgreSQL",
+    "title": "PostgreSQL High Performance & Design",
+    "platform": "PostgreSQL Tutorial",
+    "level": "Intermediate",
+    "url": "https://www.postgresqltutorial.com/",
+    "duration": "8 hours"
+  }
+]

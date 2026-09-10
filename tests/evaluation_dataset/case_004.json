@@ -1,0 +1,17 @@
+{
+    "id": "case_004",
+    "name": "Java Backend Developer — Borderline Candidate",
+    "expected_decision": "BORDERLINE",
+    "expected_mandatory_failures": [],
+    "expected_missing_skills": [
+        "AWS",
+        "Docker",
+        "Kubernetes"
+    ],
+    "expected_score_range": [
+        60.0,
+        74.0
+    ],
+    "jd_text": "Java Backend Developer position. Mandatory qualifications: 2+ years Java experience, Spring Boot required. Preferred skills: AWS, Docker, Kubernetes.",
+    "resume_text": "Morgan Lee. Software Engineer with 2 years of Java experience. Proficient in Spring Framework and REST API design."
+}
