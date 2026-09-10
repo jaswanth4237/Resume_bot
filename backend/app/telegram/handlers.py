@@ -1,12 +1,15 @@
 import logging
+import time
 from telegram import Update
 from telegram.ext import ContextTypes
+from app.config.settings import settings
 from app.services.matching_service import MatchingService
 from app.telegram.keyboards import get_start_keyboard, get_action_inline_keyboard
 
 logger = logging.getLogger(__name__)
 
 USER_SESSIONS = {}
+LAST_ANALYSIS_ATTEMPTS = {}
 
 
 def get_user_session(user_id: int) -> dict:
@@ -23,6 +26,7 @@ def get_user_session(user_id: int) -> dict:
 async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     USER_SESSIONS[user_id] = {"jd_filename": None, "jd_bytes": None, "resumes": [], "last_analysis": None}
+    LAST_ANALYSIS_ATTEMPTS.pop(user_id, None)
 
     message_text = (
         "*ResumeMatch AI — Intelligent Recruitment Assistant*\n\n"
@@ -69,6 +73,7 @@ async def status_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def reset_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     USER_SESSIONS[user_id] = {"jd_filename": None, "jd_bytes": None, "resumes": [], "last_analysis": None}
+    LAST_ANALYSIS_ATTEMPTS.pop(user_id, None)
     await update.message.reply_text("Session cleared! Upload a new Job Description to begin.", reply_markup=get_start_keyboard())
 
 
@@ -92,9 +97,37 @@ async def document_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     file_bytes = bytes(await tg_file.download_as_bytearray())
 
     caption = (update.message.caption or "").lower()
-    is_jd = ("jd" in caption or "job" in caption or "description" in caption) or (session["jd_bytes"] is None)
+    filename_lower = filename.lower()
+    jd_markers = ("jd", "job description", "job_description", "job-description", "jobdescription")
+    resume_markers = ("resume", "cv", "curriculum vitae", "curriculum_vitae")
+    explicitly_jd = any(marker in caption or marker in filename_lower for marker in jd_markers)
+    explicitly_resume = any(marker in caption or marker in filename_lower for marker in resume_markers)
+
+    if explicitly_jd:
+        is_jd = True
+    elif explicitly_resume and not explicitly_jd:
+        is_jd = False
+    else:
+        if session["jd_bytes"] is None and not session["resumes"]:
+            await update.message.reply_text(
+                "Please identify this file as a Resume or Job Description "
+                "using the filename or a caption, then upload it again.",
+                reply_markup=get_start_keyboard()
+            )
+            return
+        is_jd = session["jd_bytes"] is None
 
     if is_jd:
+        if session["jd_bytes"] is not None:
+            await update.message.reply_text(
+                f"A Job Description is already selected: `{session['jd_filename']}`\n\n"
+                "I will keep the first Job Description and ignore this additional one. "
+                "Please upload a Resume to match it.",
+                parse_mode="Markdown",
+                reply_markup=get_start_keyboard()
+            )
+            return
+
         session["jd_filename"] = filename
         session["jd_bytes"] = file_bytes
         resume_count = len(session["resumes"])
@@ -108,7 +141,8 @@ async def document_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         session["resumes"].append({"filename": filename, "bytes": file_bytes})
         count = len(session["resumes"])
         await update.message.reply_text(
-            f"*Resume #{count} received:* `{filename}`\n\nTap *Start Analysis* when ready!",
+            f"*Resume #{count} received:* `{filename}`\n\n"
+            + ("Now upload the Job Description file." if session["jd_bytes"] is None else "Tap *Start Analysis* when ready!"),
             parse_mode="Markdown",
             reply_markup=get_start_keyboard()
         )
@@ -163,7 +197,11 @@ async def text_message_handler(update: Update, context: ContextTypes.DEFAULT_TYP
             else:
                 await update.message.reply_text("Files uploaded. Tap *Start Analysis* to run, or /reset to start fresh.", parse_mode="Markdown", reply_markup=get_start_keyboard())
         else:
-            await update.message.reply_text("Use the keyboard buttons below, or upload your PDF/DOCX files. Type /help for instructions.", reply_markup=get_start_keyboard())
+            await update.message.reply_text(
+                "Please upload a Resume or Job Description file.\n"
+                "Use the buttons below to choose what to upload, or type /help for instructions.",
+                reply_markup=get_start_keyboard()
+            )
 
 
 async def run_analysis_flow(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -176,6 +214,20 @@ async def run_analysis_flow(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if not session["resumes"]:
         await update.message.reply_text("No resumes uploaded yet. Upload at least one resume.", reply_markup=get_start_keyboard())
         return
+
+    now = time.monotonic()
+    last_attempt = LAST_ANALYSIS_ATTEMPTS.get(user_id)
+    if last_attempt is not None:
+        elapsed = now - last_attempt
+        remaining = settings.ANALYSIS_RATE_LIMIT_SECONDS - elapsed
+        if remaining > 0:
+            await update.message.reply_text(
+                f"Please wait {int(remaining) + 1} seconds before starting another analysis.",
+                reply_markup=get_start_keyboard()
+            )
+            return
+
+    LAST_ANALYSIS_ATTEMPTS[user_id] = now
 
     progress_msg = await update.message.reply_text(
         "*Analyzing candidate(s)...*\n\n"

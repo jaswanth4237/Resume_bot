@@ -22,6 +22,7 @@ class Settings(BaseSettings):
     EMBEDDING_MODEL: str = "text-embedding-3-small"
 
     MAX_FILE_SIZE_MB: int = 10
+    ANALYSIS_RATE_LIMIT_SECONDS: int = 60
     MATCH_THRESHOLD: float = 75.0
     SUITABLE_THRESHOLD: float = 75.0
     BORDERLINE_THRESHOLD: float = 60.0

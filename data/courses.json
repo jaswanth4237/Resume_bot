@@ -4,15 +4,15 @@
     "title": "Docker Fundamentals",
     "platform": "Coursera / Educational Catalog",
     "level": "Beginner",
-    "url": "https://www.coursera.org/learn/docker-essentials",
+    "url": "https://docs.docker.com/get-started/",
     "duration": "6 hours"
   },
   {
     "skill": "Docker",
     "title": "Docker for Developers",
-    "platform": "Udemy Catalog",
+    "platform": "Docker Docs",
     "level": "Intermediate",
-    "url": "https://www.udemy.com/course/docker-mastery",
+    "url": "https://docs.docker.com/get-started/",
     "duration": "10 hours"
   },
   {
@@ -20,7 +20,7 @@
     "title": "AWS Cloud Fundamentals",
     "platform": "AWS Training",
     "level": "Beginner",
-    "url": "https://aws.amazon.com/training/course-ramps/aws-cloud-practitioner/",
+    "url": "https://aws.amazon.com/training/",
     "duration": "8 hours"
   },
   {
@@ -28,7 +28,7 @@
     "title": "AWS Developer Learning Path",
     "platform": "AWS Training",
     "level": "Intermediate",
-    "url": "https://aws.amazon.com/training/learning-paths/developer/",
+    "url": "https://aws.amazon.com/training/",
     "duration": "20 hours"
   },
   {
@@ -36,7 +36,7 @@
     "title": "Kubernetes for Beginners",
     "platform": "edX Catalog",
     "level": "Beginner",
-    "url": "https://www.edx.org/learn/kubernetes",
+    "url": "https://kubernetes.io/training/",
     "duration": "12 hours"
   },
   {
@@ -44,7 +44,7 @@
     "title": "Microservices Architecture & Design",
     "platform": "Pluralsight Catalog",
     "level": "Intermediate",
-    "url": "https://www.pluralsight.com/courses/microservices-architectural-design-patterns",
+    "url": "https://www.pluralsight.com/search?q=microservices",
     "duration": "5 hours"
   },
   {
@@ -52,7 +52,7 @@
     "title": "Building Microservices with Spring Boot",
     "platform": "Spring Academy",
     "level": "Intermediate",
-    "url": "https://spring.academy/courses/building-microservices-with-spring-boot",
+    "url": "https://spring.academy/",
     "duration": "15 hours"
   },
   {
@@ -60,7 +60,7 @@
     "title": "PostgreSQL High Performance & Design",
     "platform": "PostgreSQL Tutorial",
     "level": "Intermediate",
-    "url": "https://www.postgresqltutorial.com/",
+    "url": "https://www.postgresql.org/docs/current/tutorial.html",
     "duration": "8 hours"
   }
 ]
