@@ -138,6 +138,24 @@ async def document_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=get_start_keyboard()
         )
     else:
+        duplicate = any(
+            resume["filename"] == filename or resume["bytes"] == file_bytes
+            for resume in session["resumes"]
+        )
+        if duplicate:
+            next_step = (
+                "Please upload the Job Description file."
+                if session["jd_bytes"] is None
+                else "Please upload a different Resume or tap Start Analysis."
+            )
+            await update.message.reply_text(
+                f"This Resume is already uploaded: `{filename}`\n\n"
+                + next_step,
+                parse_mode="Markdown",
+                reply_markup=get_start_keyboard()
+            )
+            return
+
         session["resumes"].append({"filename": filename, "bytes": file_bytes})
         count = len(session["resumes"])
         await update.message.reply_text(
