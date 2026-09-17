@@ -1,0 +1,15 @@
+const express = require('express');
+const multer = require('multer');
+const settings = require('../config/settings');
+const controller = require('../controllers/documentController');
+const { health } = require('../controllers/healthController');
+const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: settings.maxFileSizeMb * 1024 * 1024 }, fileFilter: (req, file, cb) => cb(null, /\.(pdf|docx|txt)$/i.test(file.originalname)) });
+router.get('/health', health);
+router.post('/jd/upload', upload.single('file'), controller.uploadJd);
+router.post('/resume/upload', upload.single('file'), controller.uploadResume);
+router.post('/analyze', upload.fields([{ name: 'jd_file', maxCount: 1 }, { name: 'resume_file', maxCount: 1 }, { name: 'resume_files', maxCount: 20 }]), (req, res, next) => { req.files.resume_files = [...(req.files.resume_files || []), ...(req.files.resume_file || [])]; controller.analyze(req, res, next); });
+router.get('/analysis/:analysisId', controller.getResult);
+router.get('/analysis/:analysisId/report', controller.getReport);
+router.get('/courses', controller.courses);
+module.exports = router;

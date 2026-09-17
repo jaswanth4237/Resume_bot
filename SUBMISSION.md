@@ -11,12 +11,12 @@ ResumeMatch AI is an intelligent, explainable recruitment assistance system and 
 - **Deterministic Scoring Engine**: Configurable category weights (Skills 50%, Experience 20%, Responsibilities 15%, Education 5%, Preferred 10%).
 - **Eligibility Engine**: Hard-constraint checking for mandatory requirements resulting in SUITABLE, BORDERLINE, or REJECT status.
 - **Gap Analysis & Course Recommendations**: Curated course mappings for identified missing or partial skill gaps.
-- **Infrastructure**: FastAPI backed by PostgreSQL and Redis.
+- **Infrastructure**: Express.js backed by MongoDB, with optional Redis caching.
 
 ## Health Check Endpoint
 - **URL**: `http://localhost:8000/api/v1/health`
 - **Response**: Returns HTTP 200 OK with PostgreSQL, Redis, and overall app health metrics.
 
 ## Verification & Testing
-- Run pytest suite: `cd backend && pytest`
-- Start the API locally: `cd backend && uvicorn app.main:app --host 0.0.0.0 --port 8000`
+- Run the Node.js test suite: `npm test`
+- Start the API locally: `npm start`

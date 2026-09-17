@@ -1,0 +1,11 @@
+{
+  "name": "resumematch-workspace",
+  "private": true,
+  "scripts": {
+    "install": "npm --prefix backend install",
+    "start": "npm --prefix backend start",
+    "worker": "npm --prefix backend run worker",
+    "test": "npm --prefix backend test",
+    "build": "npm --prefix backend run build"
+  }
+}

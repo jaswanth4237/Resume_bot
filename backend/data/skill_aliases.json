@@ -1,0 +1,34 @@
+{
+    "aliases": {
+        "Spring": "Spring Framework",
+        "Spring Boot": "Spring Boot",
+        "Amazon Web Services": "AWS",
+        "AWS EC2": "AWS",
+        "AWS S3": "AWS",
+        "Postgres": "PostgreSQL",
+        "Postgresql": "PostgreSQL",
+        "JS": "JavaScript",
+        "TS": "TypeScript",
+        "Node": "Node.js",
+        "Nodejs": "Node.js",
+        "Node.JS": "Node.js",
+        "React.js": "React",
+        "ReactJS": "React",
+        "Vue.js": "Vue",
+        "VueJS": "Vue",
+        "K8s": "Kubernetes",
+        "Py": "Python",
+        "Mongo": "MongoDB",
+        "GCP": "Google Cloud Platform"
+    },
+    "strict_inequivalent": [
+        ["MySQL", "PostgreSQL"],
+        ["Java", "JavaScript"],
+        ["AWS", "Azure"],
+        ["AWS", "GCP"],
+        ["Azure", "GCP"],
+        ["React", "React Native"],
+        ["C", "C++"],
+        ["C++", "C#"]
+    ]
+}

@@ -24,23 +24,25 @@ Job Description ──► Parser ──► LLM Extractor ──► JD JSON     �
 ## 🚦 Quick Start
 
 ### Prerequisites
-- Python 3.11+ (for local development)
-- PostgreSQL 15+
-- Redis 7+
+- Node.js 20+
+- A MongoDB deployment (optional for local deterministic API use; required for durable analyses/users)
+- Redis is optional
 
 ### 1. Environment Setup
-Copy `.env.example` to `.env`:
+From the repository root, enter the backend directory and copy `.env.example` to `.env`:
 ```bash
+cd backend
 cp .env.example .env
 ```
-Fill in your credentials (`TELEGRAM_BOT_TOKEN`, `LLM_API_KEY`).
+Set `MONGODB_URI` when a MongoDB cluster is available. Add `TELEGRAM_BOT_TOKEN` to run the bot worker.
 
 ### 2. Start Application
 ```bash
-cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+npm install
+npm start
 ```
+
+For development, use `npm run dev`. Run the Telegram worker separately with `npm run worker`.
 
 ### 3. Verify Health Endpoint
 ```bash
@@ -52,24 +54,25 @@ curl http://localhost:8000/api/v1/health
 Render is not required for local use or testing. Deploy to Render when the API or Telegram bot must run continuously online.
 
 This repository includes a [`render.yaml`](render.yaml) Blueprint that creates:
-- A Web Service for the FastAPI API
+- A Web Service for the Node.js API
 - A Background Worker for Telegram polling
-- A PostgreSQL database
 - A Redis service
 
-For a manual Render Web Service, leave Root Directory blank and use:
-- Build command: `pip install -r backend/requirements.txt`
-- Start command: `uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
+For a manual Render Web Service, set Root Directory to `backend` and use:
+- Build command: `npm ci`
+- Start command: `npm start`
 
-For the separate Background Worker, use the same build command and `python backend/run_bot.py` as the start command. To deploy with the Blueprint, create a Blueprint from this repository, then enter the prompted `TELEGRAM_BOT_TOKEN` and `LLM_API_KEY` values. Render may require a paid instance for the Background Worker; choose a plan available to your account.
+For the separate Background Worker, use the same build command and `npm run worker` as the start command. Set `MONGODB_URI`, `TELEGRAM_BOT_TOKEN`, and optionally `REDIS_URL` and `LLM_API_KEY`. Render may require a paid instance for the Background Worker; choose a plan available to your account.
 
 ---
 
 ## 🧪 Running Tests
 ```bash
 cd backend
-pytest
+npm test
 ```
+
+The Node.js API preserves the versioned routes under `/api/v1`: health, JD upload, resume upload, analysis, analysis reports, and courses.
 
 ---
 

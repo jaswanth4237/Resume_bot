@@ -1,35 +1,33 @@
 # TECH_STACK.md — ResumeMatch AI Technology Stack
 
 ## 1. Core Application Frameworks
-* **Language**: Python 3.11+
-* **Backend Web Framework**: FastAPI (Async/ASGI)
-* **Async Server**: Uvicorn / Gunicorn
-* **Bot Framework**: python-telegram-bot (v20+ async)
+* **Language**: Node.js 20+
+* **Backend Web Framework**: Express.js
+* **HTTP Server**: Node.js
+* **Bot Framework**: grammY
 
 ## 2. Document Processing & Extraction
-* **PDF Processing**: `pypdf`, `pdfplumber`
-* **DOCX Processing**: `python-docx`
-* **Text Processing**: Built-in standard library & regex
+* **PDF Processing**: `pdf-parse`
+* **DOCX Processing**: `mammoth`
+* **Text Processing**: Node.js built-ins & regex
 
 ## 3. Data Extraction & AI Integration
-* **LLM Provider Integration**: OpenAI API / LangChain / Pydantic AI for structured JSON output
-* **Structured Output Validation**: `pydantic` (v2)
-* **Embedding Model**: OpenAI `text-embedding-3-small` / Sentence-Transformers (Semantic Matching)
+* **LLM Provider Integration**: Configurable LLM API integration
+* **Structured Output Validation**: JavaScript object validation
+* **Embedding Model**: Configurable semantic matching integration
 
 ## 4. Matching & Scoring Engine
-* **Deterministic Scoring Engine**: Custom Python business logic
-* **Normalization Engine**: Custom alias dictionary + fuzzy/semantic string matching (`rapidfuzz`, Cosine Similarity)
+* **Deterministic Scoring Engine**: Custom JavaScript business logic
+* **Normalization Engine**: Custom alias dictionary + fuzzy/semantic string matching
 * **Eligibility Engine**: Deterministic rules engine (Mandatory vs. Preferred constraints)
 
 ## 5. Storage & Caching
-* **Relational Database**: PostgreSQL 15+
-* **ORM**: SQLAlchemy (v2.0 Async Session) + AsyncPG
-* **Database Migrations**: Alembic
-* **Cache & Session Management**: Redis (v7+) using `redis-py` (asyncio)
+* **Document Database**: MongoDB via Mongoose
+* **Database Models**: Mongoose schemas
+* **Cache & Session Management**: Optional Redis-compatible service
 
 ## 6. Testing & Quality Assurance
-* **Test Runner**: `pytest`, `pytest-asyncio`, `pytest-cov`
-* **Linting & Formatting**: `ruff`, `mypy`
+* **Test Runner**: Node.js built-in test runner
 
 ## 7. Infrastructure & Deployment
 * **Monitoring**: Prometheus & Grafana (health metrics, request duration, match distributions)
