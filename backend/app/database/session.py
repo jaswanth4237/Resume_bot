@@ -4,10 +4,12 @@ from app.config.settings import settings
 
 Base = declarative_base()
 
-# Convert standard postgresql:// to postgresql+asyncpg:// if needed
+# Convert provider database URLs to the asyncpg SQLAlchemy driver.
 database_url = settings.DATABASE_URL
-if database_url.startswith("postgresql://"):
-    database_url = database_url.replace("postgresql://", "postgresql+asyncpg://", 1)
+for scheme in ("postgres://", "postgresql://"):
+    if database_url.startswith(scheme):
+        database_url = database_url.replace(scheme, "postgresql+asyncpg://", 1)
+        break
 
 engine = create_async_engine(
     database_url,

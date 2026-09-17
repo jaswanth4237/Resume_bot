@@ -11,7 +11,7 @@ ResumeMatch AI is an intelligent, explainable recruitment assistance system and 
 - **Deterministic Scoring Engine**: Configurable category weights (Skills 50%, Experience 20%, Responsibilities 15%, Education 5%, Preferred 10%).
 - **Eligibility Engine**: Hard-constraint checking for mandatory requirements resulting in SUITABLE, BORDERLINE, or REJECT status.
 - **Gap Analysis & Course Recommendations**: Curated course mappings for identified missing or partial skill gaps.
-- **Containerized Infrastructure**: Docker Compose setup featuring FastAPI, PostgreSQL, Redis, and NGINX.
+- **Infrastructure**: FastAPI backed by PostgreSQL and Redis.
 
 ## Health Check Endpoint
 - **URL**: `http://localhost:8000/api/v1/health`
@@ -19,4 +19,4 @@ ResumeMatch AI is an intelligent, explainable recruitment assistance system and 
 
 ## Verification & Testing
 - Run pytest suite: `cd backend && pytest`
-- Launch containers: `docker compose up --build -d`
+- Start the API locally: `cd backend && uvicorn app.main:app --host 0.0.0.0 --port 8000`

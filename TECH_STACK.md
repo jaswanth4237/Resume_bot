@@ -32,6 +32,4 @@
 * **Linting & Formatting**: `ruff`, `mypy`
 
 ## 7. Infrastructure & Deployment
-* **Containerization**: Docker & Docker Compose
-* **Reverse Proxy**: NGINX
 * **Monitoring**: Prometheus & Grafana (health metrics, request duration, match distributions)
