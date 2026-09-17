@@ -57,7 +57,11 @@ This repository includes a [`render.yaml`](render.yaml) Blueprint that creates:
 - A PostgreSQL database
 - A Redis service
 
-To deploy, create a Blueprint in the Render dashboard from this repository, then enter the prompted `TELEGRAM_BOT_TOKEN` and `LLM_API_KEY` values. The worker must remain a separate service because Telegram polling and the API server are separate long-running processes. Render may require a paid instance for the Background Worker; choose a plan available to your account.
+For a manual Render Web Service, leave Root Directory blank and use:
+- Build command: `pip install -r backend/requirements.txt`
+- Start command: `uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port $PORT`
+
+For the separate Background Worker, use the same build command and `python backend/run_bot.py` as the start command. To deploy with the Blueprint, create a Blueprint from this repository, then enter the prompted `TELEGRAM_BOT_TOKEN` and `LLM_API_KEY` values. Render may require a paid instance for the Background Worker; choose a plan available to your account.
 
 ---
 
