@@ -18,7 +18,7 @@ async function connectMongo() {
     return true;
   } catch (error) {
     state = 'disconnected';
-    console.warn(`MongoDB unavailable: ${error.message}`);
+    console.warn(`MongoDB is unavailable: ${error.message}`);
     return false;
   }
 }
