@@ -1,0 +1,22 @@
+{
+    "case_id": "case_002",
+    "description": "Frontend dev applying for Java backend — missing all 4 mandatory skills",
+    "expected_decision": "REJECT",
+    "expected_score_range": [
+        0,
+        59
+    ],
+    "expected_mandatory_requirements": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Docker"
+    ],
+    "expected_missing_skills": [
+        "Java",
+        "Spring Boot",
+        "Microservices",
+        "Docker"
+    ],
+    "expected_partial_skills": []
+}

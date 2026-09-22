@@ -1,0 +1,18 @@
+Job Title: Python Backend Engineer
+
+Required:
+- Python — mandatory
+- REST APIs — mandatory
+- PostgreSQL — mandatory
+- Minimum 3 years experience required
+
+Preferred:
+- Docker
+- AWS
+- Redis
+
+Education: Bachelor's degree preferred.
+
+Responsibilities:
+- Build and maintain REST APIs using Python
+- Work with PostgreSQL and Redis

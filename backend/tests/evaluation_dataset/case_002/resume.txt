@@ -1,0 +1,19 @@
+Bob Jones
+bob@example.com
+
+SUMMARY
+Frontend developer with 3 years of experience in React and JavaScript.
+
+SKILLS
+React, JavaScript, TypeScript, HTML, CSS, Node.js, REST APIs
+
+EXPERIENCE
+Frontend Developer — WebCo (2023–2026)
+- Built single-page applications using React
+- Integrated REST APIs into frontend components
+
+Junior Developer — AgencyXYZ (2022–2023)
+- Developed UI components
+
+EDUCATION
+Bachelor of Arts in Graphic Design, City College 2022

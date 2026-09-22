@@ -1,0 +1,17 @@
+{
+    "case_id": "case_003",
+    "description": "Matching Python skills but 2yr exp vs 3yr required — borderline/reject on experience",
+    "expected_decision": "REJECT",
+    "expected_score_range": [
+        0,
+        74
+    ],
+    "expected_mandatory_requirements": [
+        "Python",
+        "REST APIs",
+        "PostgreSQL"
+    ],
+    "expected_missing_skills": [],
+    "expected_partial_skills": [],
+    "notes": "All skills match but experience gap of 1 year triggers REJECT per mandatory experience rule"
+}

@@ -5,6 +5,7 @@
         "Amazon Web Services": "AWS",
         "AWS EC2": "AWS",
         "AWS S3": "AWS",
+        "AWS Lambda": "AWS",
         "Postgres": "PostgreSQL",
         "Postgresql": "PostgreSQL",
         "JS": "JavaScript",
@@ -19,16 +20,85 @@
         "K8s": "Kubernetes",
         "Py": "Python",
         "Mongo": "MongoDB",
-        "GCP": "Google Cloud Platform"
+        "GCP": "Google Cloud Platform",
+        "Java": "Java",
+        "Python": "Python",
+        "Docker": "Docker",
+        "Kubernetes": "Kubernetes",
+        "AWS": "AWS",
+        "Azure": "Azure",
+        "MongoDB": "MongoDB",
+        "Node.js": "Node.js",
+        "React": "React",
+        "PostgreSQL": "PostgreSQL",
+        "MySQL": "MySQL",
+        "Redis": "Redis",
+        "TypeScript": "TypeScript",
+        "JavaScript": "JavaScript",
+        "REST APIs": "REST APIs",
+        "REST API": "REST APIs",
+        "RESTful APIs": "REST APIs",
+        "GraphQL": "GraphQL",
+        "Microservices": "Microservices",
+        "Microservice": "Microservices",
+        "Git": "Git",
+        "GitHub": "Git",
+        "GitLab": "Git",
+        "Linux": "Linux",
+        "CI/CD": "CI/CD",
+        "Jenkins": "Jenkins",
+        "FastAPI": "FastAPI",
+        "Flask": "Flask",
+        "Django": "Django",
+        "Express": "Express.js",
+        "Express.js": "Express.js",
+        "Spring Framework": "Spring Framework",
+        "Google Cloud Platform": "Google Cloud Platform"
     },
     "strict_inequivalent": [
-        ["MySQL", "PostgreSQL"],
-        ["Java", "JavaScript"],
-        ["AWS", "Azure"],
-        ["AWS", "GCP"],
-        ["Azure", "GCP"],
-        ["React", "React Native"],
-        ["C", "C++"],
-        ["C++", "C#"]
+        [
+            "MySQL",
+            "PostgreSQL"
+        ],
+        [
+            "Java",
+            "JavaScript"
+        ],
+        [
+            "Java",
+            "TypeScript"
+        ],
+        [
+            "AWS",
+            "Azure"
+        ],
+        [
+            "AWS",
+            "Google Cloud Platform"
+        ],
+        [
+            "Azure",
+            "Google Cloud Platform"
+        ],
+        [
+            "React",
+            "React Native"
+        ],
+        [
+            "C",
+            "C++"
+        ],
+        [
+            "C++",
+            "C#"
+        ],
+        [
+            "Flask",
+            "FastAPI"
+        ],
+        [
+            "Django",
+            "FastAPI"
+        ]
     ]
 }

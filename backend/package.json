@@ -8,7 +8,10 @@
     "start": "node src/server.js",
     "worker": "node src/worker.js",
     "dev": "nodemon src/server.js",
-    "test": "node --test",
+    "test": "node --test test/**/*.js tests/unit/**/*.js",
+    "test:unit": "node --test tests/unit/**/*.js",
+    "test:smoke": "node --test test/**/*.js",
+    "eval": "node tests/evaluation_dataset/run_evaluation.js",
     "build": "node --check src/server.js"
   },
   "dependencies": {

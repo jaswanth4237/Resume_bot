@@ -1,0 +1,18 @@
+Carol Dev
+carol@email.com
+
+SUMMARY
+Backend developer with 2 years Python and Node.js experience.
+
+SKILLS
+Python, Node.js, REST APIs, PostgreSQL, Git, Linux
+
+EXPERIENCE
+Backend Developer — DataFirm (2024–2026)
+- Built REST APIs using Python Flask
+- Managed PostgreSQL databases
+- 2 years of total backend engineering experience
+
+EDUCATION
+Bachelor of Engineering in Information Technology
+Tech University, 2024

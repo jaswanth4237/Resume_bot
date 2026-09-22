@@ -1,0 +1,23 @@
+Job Title: Java Backend Developer
+
+We are looking for a skilled Java Backend Developer.
+
+Required:
+- Java — mandatory
+- Spring Boot — mandatory
+- Microservices — mandatory
+- Minimum 5 years of experience required
+
+Preferred:
+- Docker
+- AWS
+- Kubernetes
+
+Education:
+Bachelor's degree in Computer Science or related field required.
+
+Responsibilities:
+- Develop backend microservices using Java and Spring Boot
+- Build and maintain REST APIs
+- Design scalable microservices architecture
+- Deploy services on cloud infrastructure

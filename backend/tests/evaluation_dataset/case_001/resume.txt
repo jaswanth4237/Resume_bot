@@ -1,0 +1,27 @@
+Jane Smith
+jane@example.com
++1-555-0101
+
+SUMMARY
+Experienced Java backend developer with 6 years of professional software engineering experience.
+
+SKILLS
+Java, Spring Boot, Microservices, REST APIs, PostgreSQL, Docker, AWS, Git, Maven, JUnit
+
+EXPERIENCE
+Senior Software Engineer — TechCorp Inc. (2021–2026)
+- Developed microservices using Java and Spring Boot
+- Built and maintained REST APIs serving 1M+ daily requests
+- Deployed containerized applications using Docker on AWS EC2
+- Worked with PostgreSQL for high-volume transactional data
+
+Software Engineer — Startup Labs (2020–2021)
+- Built backend services in Java
+- Integrated third-party APIs
+
+EDUCATION
+Bachelor of Science in Computer Science
+State University, 2020
+
+CERTIFICATIONS
+AWS Certified Developer – Associate

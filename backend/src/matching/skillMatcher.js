@@ -1,11 +1,21 @@
 const { normalizeSkill } = require('../ai/extractors');
 const strictPairs = require('../../data/skill_aliases.json').strict_inequivalent || [];
 
+function isStrictlyInequivalent(left, right) {
+  return strictPairs.some(pair => {
+    const normalized = pair.map(item => normalizeSkill(item).toLowerCase());
+    return normalized.includes(left) && normalized.includes(right);
+  });
+}
+
 function equivalent(a, b) {
   const left = normalizeSkill(a).toLowerCase();
   const right = normalizeSkill(b).toLowerCase();
+  // Check strict non-equivalents FIRST — these pairs must never be treated as related
+  if (isStrictlyInequivalent(left, right)) return false;
+  // Exact or substring match
   if (left === right || left.includes(right) || right.includes(left)) return true;
-  if (strictPairs.some(pair => pair.map(item => normalizeSkill(item).toLowerCase()).includes(left) && pair.map(item => normalizeSkill(item).toLowerCase()).includes(right))) return false;
+  // Token overlap (e.g. "aws ec2" partially matches "aws")
   return left.split(/[^a-z0-9]+/).some(token => token.length > 2 && right.includes(token));
 }
 
