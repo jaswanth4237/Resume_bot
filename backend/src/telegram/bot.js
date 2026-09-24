@@ -108,7 +108,7 @@ async function replyLong(ctx, text) {
 async function analyzeSession(ctx) {
   const current = session(ctx.from.id);
   if (!current.jd || !current.resumes.length) {
-    return ctx.reply('Upload a Job Description and at least one resume first.');
+    return ctx.reply('Upload a perfect Job Description and at least one resume first.');
   }
   if (current.analyzing) return ctx.reply('Analysis is already in progress. Please wait for the result.');
   current.analyzing = true;
