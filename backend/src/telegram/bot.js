@@ -92,6 +92,19 @@ function learningLinks(result) {
   return `\n\nSKILL GAPS AND LEARNING LINKS\n${lines.join('\n')}`;
 }
 
+async function replyLong(ctx, text) {
+  const chunks = [];
+  let remaining = text;
+  while (remaining.length > 3900) {
+    let splitAt = remaining.lastIndexOf('\n', 3900);
+    if (splitAt < 1) splitAt = 3900;
+    chunks.push(remaining.slice(0, splitAt));
+    remaining = remaining.slice(splitAt).trimStart();
+  }
+  if (remaining) chunks.push(remaining);
+  for (const chunk of chunks) await ctx.reply(chunk);
+}
+
 async function analyzeSession(ctx) {
   const current = session(ctx.from.id);
   if (!current.jd || !current.resumes.length) {
@@ -109,11 +122,14 @@ async function analyzeSession(ctx) {
     }).then(persistAndCache)));
 
     for (const result of results) {
-      await ctx.reply(`RESUME MATCH REPORT\n\nCandidate: ${result.candidate.name}\nPosition: ${result.job_title}\nScore: ${result.overall_score}%\nDecision: ${result.decision}\n\n${result.explanation}${learningLinks(result)}`);
+      await replyLong(ctx, `RESUME MATCH REPORT\n\nCandidate: ${result.candidate.name}\nPosition: ${result.job_title}\nScore: ${result.overall_score}%\nDecision: ${result.decision}\n\n${result.explanation}${learningLinks(result)}`);
     }
     current.jd = null;
     current.resumes = [];
     saveSessions();
+  } catch (error) {
+    console.error('Telegram analysis failed:', error);
+    await ctx.reply('Analysis could not be completed. Please try again or use /reset to upload the files again.');
   } finally {
     current.analyzing = false;
   }
@@ -208,4 +224,4 @@ async function createBot() {
   return bot;
 }
 
-module.exports = { createBot, sessions, documentType, learningLinks };
+module.exports = { createBot, sessions, documentType, learningLinks, replyLong };
